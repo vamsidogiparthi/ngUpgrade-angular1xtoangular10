@@ -1,6 +1,6 @@
 # AngularNgUpgrade
 
-This project is a sample app to demonstrate angular ng upgrade capabilities of running angular js and angular latest version together as once single hybrid app.
+This project is a sample app to demonstrate the angular ng upgrade capabilities of running angular js and angular latest version together as one single hybrid app.
 
 This project contains code related to how to upgrade and downgrade angularjs components as well as angular components to work collaboratively together.
 
