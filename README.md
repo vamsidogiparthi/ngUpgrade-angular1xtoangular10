@@ -1,6 +1,17 @@
-# AngularTenApp
+# AngularNgUpgrade
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+This project is a sample app to demonstrate angular ng upgrade capabilities of running angular js and angular latest version together as once single hybrid app.
+
+This project contains code related to how to upgrade and downgrade angularjs components as well as angular components to work collaboratively together.
+
+This project has been created as per the instruction provided within the official ng upgrade documentation provided by google inside the below links
+
+https://angular.io/guide/upgrade
+https://angular.io/guide/upgrade-setup.
+
+The project is still at its beginning stages and will evolve into something more complete with standards adhering to code writing as per google recommended guidlines mentioned inside the below link
+
+https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md.
 
 ## Development server
 
