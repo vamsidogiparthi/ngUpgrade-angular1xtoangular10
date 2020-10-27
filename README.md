@@ -35,4 +35,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Help-links:
+https://angular.io/guide/upgrade
+https://angular.io/guide/upgrade-setup.
+https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md.
+https://angular.io/api/upgrade/static/UpgradeModule#examples.
+https://stackblitz.com/edit/angular-upgrade?embed=1&file=src/app/app.module.ts.
+https://stackblitz.com/github/AminRahimi/ngUpgrade?file=src%2Fapp%2Fapp.module.ts
