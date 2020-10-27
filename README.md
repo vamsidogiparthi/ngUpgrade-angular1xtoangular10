@@ -40,11 +40,7 @@ https://angular.io/guide/upgrade.
 
 https://angular.io/guide/upgrade-setup.
 
-https://github.com/johnpapa/angular-styleguide/blob/master/a1/
-README.md.
+https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md.
 
 https://angular.io/api/upgrade/static/UpgradeModule#examples.
 
-https://stackblitz.com/edit/angular-upgrade?embed=1&file=src/app/app.module.ts.
-
-https://stackblitz.com/github/AminRahimi/ngUpgrade?file=src%2Fapp%2Fapp.module.ts
