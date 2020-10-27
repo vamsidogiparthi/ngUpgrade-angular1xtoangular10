@@ -5,28 +5,26 @@ import { UpgradeComponent } from '@angular/upgrade/static';
 
 HeroDetailAngularController.$inject = [];
 function HeroDetailAngularController() {
-  var vm = this;
-
-  vm.text = 'My angularjs component';
+    var vm = this;
+    vm.message = 'Running upgraded angular';
 }
+
 export const heroDetailAngular = {
     template: `
-    <h1> {{ $ctrl.text }} </h1>
+    <h1> {{ $ctrl.message }} </h1>
     <p> {{ $ctrl.title }} </p>
   `,
-  controller: HeroDetailAngularController,
-  bindings: {
-    title: '<?'
-  },
-  };
+    controller: HeroDetailAngularController
+};
 
 @Directive({
-  selector: 'hero-detail-angular'
+    selector: 'hero-detail-angular'
 })
-export class HeroDetailAngularDirective extends UpgradeComponent {
-  @Input() title: string;
 
-  constructor(elementRef: ElementRef, injector: Injector) {
-    super('heroDetailAngular', elementRef, injector);
-  }
+export class HeroDetailAngularDirective extends UpgradeComponent {
+    @Input() title: string;
+
+    constructor(elementRef: ElementRef, injector: Injector) {
+        super('heroDetailAngular', elementRef, injector);
+    }
 }
