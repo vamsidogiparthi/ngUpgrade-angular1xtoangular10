@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { Directive, DoBootstrap, ElementRef, Injector, Input, NgModule } from '@angular/core';
+import { ApplicationRef, DoBootstrap, NgModule } from '@angular/core';
 import * as angular from 'angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UpgradeModule, UpgradeComponent, downgradeComponent, setAngularJSGlobal } from '@angular/upgrade/static';
+import { UpgradeModule, downgradeComponent, setAngularJSGlobal } from '@angular/upgrade/static';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { heroDetailAngular, HeroDetailAngularDirective } from './hero-detail-angularjs/hero-detail-angular.directive';
 
@@ -32,13 +32,12 @@ const HeroApp = angular
     HeroDetailComponent,
     AppComponent
   ],
-  providers: [{ provide: '$scope', useExisting: '$rootScope' }],
-  // bootstrap: [AppComponent]
+  providers: [{ provide: '$scope', useExisting: '$rootScope' }]
 })
-export class AppModule implements DoBootstrap {
 
+export class AppModule implements DoBootstrap {
   constructor(private upgrade: UpgradeModule) { }
-  public ngDoBootstrap(app: any) {
+  public ngDoBootstrap(app: ApplicationRef) {
     setAngularJSGlobal(angular);
     this.upgrade.bootstrap(document.body, [HeroApp], { strictDi: true });
     app.bootstrap(AppComponent);
