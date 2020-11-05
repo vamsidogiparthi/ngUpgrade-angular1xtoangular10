@@ -12,7 +12,7 @@ const HeroApp = angular
   .component('heroDetailAngular', heroDetailAngular)
   .directive('appRoot', downgradeComponent({ component: AppComponent }))
   .directive(
-    'heroDetail',
+    'heroDetailAngular2',
     downgradeComponent({ component: HeroDetailComponent }) as angular.IDirectiveFactory
   )
   .name;

@@ -13,6 +13,7 @@ export const heroDetailAngular = {
     template: `
     <h1> {{ $ctrl.message }} </h1>
     <p> {{ $ctrl.title }} </p>
+    <hero-detail-angular2></hero-detail-angular2>
   `,
     controller: HeroDetailAngularController
 };
