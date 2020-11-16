@@ -1,27 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ApplicationRef, DoBootstrap, NgModule } from '@angular/core';
-import * as angular from 'angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UpgradeModule, downgradeComponent, setAngularJSGlobal } from '@angular/upgrade/static';
+import { UpgradeModule, } from '@angular/upgrade/static';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { heroDetailAngular, HeroDetailAngularDirective } from './hero-detail-angularjs/hero-detail-angular.directive';
+import { UrlHandlingStrategy } from '@angular/router';
+import { HeroListAngularDirective } from './HeroAppNg1/hero-list-module/hero-list-angular.directive';
+import { NavBarDirective } from './HeroAppNg1/navigation-bar-module/nav-bar-component';
 
-const HeroApp = angular
-  .module('HeroApp', [])
-  .component('heroDetailAngular', heroDetailAngular)
-  .directive('appRoot', downgradeComponent({ component: AppComponent }))
-  .directive(
-    'heroDetailAngular2',
-    downgradeComponent({ component: HeroDetailComponent }) as angular.IDirectiveFactory
-  )
-  .name;
+
+
+export class Ng1Ng2UrlHandlingStrategy implements UrlHandlingStrategy {
+  shouldProcessUrl(url) { return url.toString().startsWith("/herodetail"); }
+  extract(url) { return url; }
+  merge(url, whole) { return url; }
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroDetailComponent,
-    HeroDetailAngularDirective
+    HeroListAngularDirective,
+    NavBarDirective
   ],
   imports: [
     BrowserModule,
@@ -29,17 +29,17 @@ const HeroApp = angular
     UpgradeModule
   ],
   entryComponents: [
-    HeroDetailComponent,
-    AppComponent
+    AppComponent,
+    HeroDetailComponent   
   ],
-  providers: [{ provide: '$scope', useExisting: '$rootScope' }]
+  providers: [
+    { provide: '$scope', useExisting: '$rootScope' }
+  ]
 })
 
 export class AppModule implements DoBootstrap {
   constructor(private upgrade: UpgradeModule) { }
   public ngDoBootstrap(app: ApplicationRef) {
-    setAngularJSGlobal(angular);
-    this.upgrade.bootstrap(document.body, [HeroApp], { strictDi: true });
     app.bootstrap(AppComponent);
   }
 }
