@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-ten-app';
+  widgetTitle = 'List of DC Heros';
 }

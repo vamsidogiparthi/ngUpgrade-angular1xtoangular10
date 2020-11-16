@@ -5,23 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UpgradeModule, downgradeComponent, setAngularJSGlobal } from '@angular/upgrade/static';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { heroDetailAngular, HeroDetailAngularDirective } from './hero-detail-angularjs/hero-detail-angular.directive';
+import { HeroListAngularDirective } from './HeroAppNg1/shared/hero-list-module/hero-list-angular.directive';
+import { HeroApp } from './HeroAppNg1/shared/hero-app';
 
-const HeroApp = angular
-  .module('HeroApp', [])
-  .component('heroDetailAngular', heroDetailAngular)
-  .directive('appRoot', downgradeComponent({ component: AppComponent }))
-  .directive(
-    'heroDetailAngular2',
-    downgradeComponent({ component: HeroDetailComponent }) as angular.IDirectiveFactory
-  )
-  .name;
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroDetailComponent,
-    HeroDetailAngularDirective
+    HeroListAngularDirective
   ],
   imports: [
     BrowserModule,
@@ -35,11 +27,12 @@ const HeroApp = angular
   providers: [{ provide: '$scope', useExisting: '$rootScope' }]
 })
 
+// bootstrap both angular and angular js application together. 
 export class AppModule implements DoBootstrap {
   constructor(private upgrade: UpgradeModule) { }
   public ngDoBootstrap(app: ApplicationRef) {
     setAngularJSGlobal(angular);
-    this.upgrade.bootstrap(document.body, [HeroApp], { strictDi: true });
+    this.upgrade.bootstrap(document.body, [HeroApp.name], { strictDi: true });
     app.bootstrap(AppComponent);
   }
 }
